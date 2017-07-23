@@ -20,6 +20,10 @@ android {
     repositories {
         mavenCentral()
     }
+
+    dataBinding {
+        enabled true
+    }
 }
 
 dependencies {
@@ -30,7 +34,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
-    compile 'com.facebook.android:facebook-android-sdk:4.+'
+    compile 'com.facebook.android:facebook-android-sdk:[4,5)'
     compile 'com.afollestad.material-dialogs:core:0.9.4.5'
     compile 'com.squareup.retrofit2:converter-gson:2.2.0'
     compile 'com.squareup.retrofit2:retrofit:2.2.0'
@@ -41,5 +45,11 @@ dependencies {
     compile 'com.mcxiaoke.volley:library:1.0.19'
     compile 'gun0912.ted:tedpermission:1.0.0'
     compile 'com.github.rey5137:material:1.2.4'
+    compile 'gun0912.ted:tedbottompicker:1.0.12'
+
+    compile 'com.google.firebase:firebase-core:10.2.1'
+    compile 'com.google.firebase:firebase-messaging:10.2.1'
 
 }
+
+apply plugin: 'com.google.gms.google-services'

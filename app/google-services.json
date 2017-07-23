@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "166836250616",
+    "firebase_url": "https://sunrinton2017.firebaseio.com",
+    "project_id": "sunrinton2017",
+    "storage_bucket": "sunrinton2017.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:166836250616:android:62a17a747091547f",
+        "android_client_info": {
+          "package_name": "kr.edcan.sunrinton"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "166836250616-1g28d1offgfh7sekg6tema2meulendu8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxxshsjNMPGpUdNa6U2-Ig7Nc55MWutOY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
