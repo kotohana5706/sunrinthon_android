@@ -1,0 +1,46 @@
+package kr.edcan.sunrinton.firebase;
+
+import android.util.Log;
+
+import com.google.firebase.iid.FirebaseInstanceId;
+
+import kr.edcan.sunrinton.utils.CredentialsManager;
+import kr.edcan.sunrinton.utils.NetworkHelper;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * Created by Junseok Oh on 2017-07-17.
+ */
+
+public class FirebaseInstanceIdService extends com.google.firebase.iid.FirebaseInstanceIdService {
+    @Override
+    public void onTokenRefresh() {
+        final String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+//        if (CredentialsManager.getInstance().getActiveUser().first) {
+//            NetworkHelper.getNetworkInstance().updateFirebaseToken(
+//                    CredentialsManager.getInstance().getActiveUser().second.getToken(),
+//                    refreshedToken
+//            ).enqueue(new Callback<ResponseBody>() {
+//                @Override
+//                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+//                    switch (response.code()) {
+//                        case 200:
+//                            Log.e("asdf", "firebase token updated");
+//                            break;
+//                        case 403:
+//                            Log.e("asdf", "Update Error");
+//                            break;
+//                    }
+//                }
+//
+//                @Override
+//                public void onFailure(Call<ResponseBody> call, Throwable t) {
+//                    Log.e("asdf", t.getLocalizedMessage());
+//                }
+//            });
+//        }
+    }
+}
