@@ -29,6 +29,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void setDefault() {
         binding = (ActivityMainBinding) baseBinding;
+        disableToggle();
         Collections.addAll(pageTitle,
                 "찾기", "내 카드", "사용 내역", "설정");
         pager = new MainPagerAdapter(getSupportFragmentManager());
@@ -56,7 +57,6 @@ public class MainActivity extends BaseActivity {
                         mainPager.setCurrentItem(3, true);
                         toolbar.setVisibility(View.VISIBLE);
                         setToolbarTitle(pageTitle.get(3));
-                        Toast.makeText(MainActivity.this, "", Toast.LENGTH_SHORT).show();
                         break;
 
                 }

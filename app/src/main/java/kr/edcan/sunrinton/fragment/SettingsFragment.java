@@ -5,6 +5,7 @@ import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,6 +49,7 @@ public class SettingsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_settings, container, false);
         settingRecyclerView = binding.settingsRecyclerView;
+        settingRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new LastAdapter(arrayList, BR.content)
                 .map(String.class, new ItemType<ContentSettingsHeaderBinding>(R.layout.content_settings_header))
                 .map(Settings.class, new ItemType<ContentSettingsBinding>(R.layout.content_settings) {
