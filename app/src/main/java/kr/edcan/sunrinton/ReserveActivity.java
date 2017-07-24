@@ -24,6 +24,7 @@ public class ReserveActivity extends BaseActivity {
         binding = (ActivityReserveBinding) baseBinding;
         binding.selectedMapText.setText(map.getTitle());
         binding.selectedMapAddressText.setText(map.getAddress());
+        setToolbarTitle("예약하기");
         binding.datePicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
