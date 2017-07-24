@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.edcan.sunrinton.models.History;
+import kr.edcan.sunrinton.models.Map;
 import kr.edcan.sunrinton.models.User;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
@@ -77,7 +78,8 @@ public interface NetworkAPI {
     @FormUrlEncoded
     Call<ArrayList<History>> getHistory(
             @Field("token") String token);
-
+    @GET("/map")
+    Call<ArrayList<Map>> getMaps(@Query("lat") double latitude, @Query("lon") double longitude);
 
 
 }
