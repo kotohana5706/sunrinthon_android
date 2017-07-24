@@ -87,6 +87,12 @@ public class CredentialsManager {
         return preferences.getString(key, "");
     }
 
+    public String getColorBackground() {
+        String s = getString("color");
+        if (s.equals("")) return "#FF7D70";
+        return s;
+    }
+
     public int getInt(String key) {
         return preferences.getInt(key, 0);
     }

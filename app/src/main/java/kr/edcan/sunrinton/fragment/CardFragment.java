@@ -1,6 +1,8 @@
 package kr.edcan.sunrinton.fragment;
 
 import android.databinding.DataBindingUtil;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -28,6 +30,9 @@ public class CardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_card, container, false);
         binding.cardNum.setText("No. " + CredentialsManager.getInstance().getActiveUser().second.get_id());
+        binding.cardContainer.setBackground(new ColorDrawable(Color.parseColor(
+                CredentialsManager.getInstance().getColorBackground()
+        )));
         binding.moneyLeft.setText(CredentialsManager.getInstance().getActiveUser().second.getMoney() + "원");
         binding.charge.setOnClickListener(new View.OnClickListener() {
             @Override

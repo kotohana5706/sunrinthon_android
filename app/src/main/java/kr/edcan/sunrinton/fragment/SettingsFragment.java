@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import kr.edcan.sunrinton.BR;
+import kr.edcan.sunrinton.ChangeDesignActivity;
 import kr.edcan.sunrinton.R;
 import kr.edcan.sunrinton.SplashActivity;
 import kr.edcan.sunrinton.databinding.ContentSettingsBinding;
@@ -128,7 +129,9 @@ public class SettingsFragment extends Fragment {
                         .negativeText("취소")
                         .show();
                 break;
-            case "카드 디자인 변경 ":
+            case "카드 디자인 변경":
+                startActivity(new Intent(getActivity(), ChangeDesignActivity.class));
+
                 break;
             case "카드 인쇄":
                 break;
