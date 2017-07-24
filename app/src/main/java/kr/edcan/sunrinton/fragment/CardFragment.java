@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import kr.edcan.sunrinton.R;
 import kr.edcan.sunrinton.databinding.FragmentCardBinding;
 import kr.edcan.sunrinton.databinding.FragmentSettingsBinding;
+import kr.edcan.sunrinton.utils.CredentialsManager;
 
 /**
  * Created by Junseok Oh on 2017-07-24.
@@ -26,6 +27,19 @@ public class CardFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_card, container, false);
+        binding.cardNum.setText("No. " + CredentialsManager.getInstance().getActiveUser().second.get_id());
+        binding.moneyLeft.setText(CredentialsManager.getInstance().getActiveUser().second.getMoney() + "원");
+        binding.charge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+        binding.giveSomeone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         return binding.getRoot();
     }
 }

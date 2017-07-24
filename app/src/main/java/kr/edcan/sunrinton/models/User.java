@@ -5,6 +5,7 @@ package kr.edcan.sunrinton.models;
  */
 
 public class User {
+    private String _id;
     private int userType = 0;
     private String name, pw, email, token;
     private int money;
@@ -16,6 +17,10 @@ public class User {
         this.email = email;
         this.token = token;
         this.money = money;
+    }
+
+    public String get_id() {
+        return _id;
     }
 
     public int getUserType() {
