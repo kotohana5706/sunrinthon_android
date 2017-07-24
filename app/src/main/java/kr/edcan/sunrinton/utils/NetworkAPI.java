@@ -72,7 +72,8 @@ public interface NetworkAPI {
     Call<User> purchase(
             @Field("token") String token);
 
-    @POST("/money/purchase")
+
+    @POST("/self/gethistory")
     @FormUrlEncoded
     Call<ArrayList<History>> getHistory(
             @Field("token") String token);

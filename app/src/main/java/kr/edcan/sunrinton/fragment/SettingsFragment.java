@@ -10,9 +10,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -31,7 +33,12 @@ import kr.edcan.sunrinton.databinding.ContentSettingsBinding;
 import kr.edcan.sunrinton.databinding.ContentSettingsHeaderBinding;
 import kr.edcan.sunrinton.databinding.FragmentSettingsBinding;
 import kr.edcan.sunrinton.models.Settings;
+import kr.edcan.sunrinton.models.User;
 import kr.edcan.sunrinton.utils.CredentialsManager;
+import kr.edcan.sunrinton.utils.NetworkHelper;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Junseok Oh on 2017-07-24.
@@ -74,6 +81,35 @@ public class SettingsFragment extends Fragment {
     public void onListClicked(Settings item) {
         switch (item.getTitle()) {
             case "닉네임 변경":
+                new MaterialDialog.Builder(getActivity())
+                        .title("닉네임 변경")
+                        .input("닉네임을 입력하세요",
+                                CredentialsManager.getInstance().getActiveUser().second.getName(), false,
+                                new MaterialDialog.InputCallback() {
+                                    @Override
+                                    public void onInput(@NonNull MaterialDialog dialog, CharSequence input) {
+                                        NetworkHelper.getNetworkInstance().updateNickname(
+                                                CredentialsManager.getInstance().getActiveUser().second.getToken(),
+                                                input.toString()
+                                        ).enqueue(new Callback<User>() {
+                                            @Override
+                                            public void onResponse(Call<User> call, Response<User> response) {
+                                                switch (response.code()) {
+                                                    case 200:
+                                                        Toast.makeText(getContext(), "닉네임이 성공적으로 업데이트되었습니다.", Toast.LENGTH_SHORT).show();
+                                                        CredentialsManager.getInstance().updateUserInfo(response.body());
+                                                        break;
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onFailure(Call<User> call, Throwable t) {
+                                                Log.e("asdf", t.getLocalizedMessage());
+                                            }
+                                        });
+                                    }
+                                })
+                        .show();
                 break;
             case "로그아웃":
                 new MaterialDialog.Builder(getActivity())
