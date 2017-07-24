@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import kr.edcan.sunrinton.BR;
+import kr.edcan.sunrinton.CardPrintActivity;
 import kr.edcan.sunrinton.ChangeDesignActivity;
 import kr.edcan.sunrinton.R;
 import kr.edcan.sunrinton.SplashActivity;
@@ -134,6 +135,7 @@ public class SettingsFragment extends Fragment {
 
                 break;
             case "카드 인쇄":
+                startActivity(new Intent(getActivity(), CardPrintActivity.class));
                 break;
         }
     }
