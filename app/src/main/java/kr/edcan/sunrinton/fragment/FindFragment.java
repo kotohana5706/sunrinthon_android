@@ -13,6 +13,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
@@ -55,16 +56,15 @@ public class FindFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.map = googleMap;
-        if(gpsInfo.isGetLocation()){
+        if (gpsInfo.isGetLocation()) {
             map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(gpsInfo.getLatitude(), gpsInfo.getLongitude()), 16.0f));
-            map.addMarker(new MarkerOptions().position(new LatLng(gpsInfo.getLatitude(), gpsInfo.getLongitude())).title("현재 위치"));
             NetworkHelper.getNetworkInstance().getMaps(gpsInfo.getLatitude(), gpsInfo.getLongitude()).enqueue(new Callback<ArrayList<Map>>() {
                 @Override
                 public void onResponse(Call<ArrayList<Map>> call, Response<ArrayList<Map>> response) {
-                    switch (response.code()){
+                    switch (response.code()) {
                         case 200:
                             arrayList.addAll(response.body());
-                            for (Map m : arrayList){
+                            for (Map m : arrayList) {
                                 map.addMarker(new MarkerOptions().position(new LatLng(m.getLatitude(), m.getLongitude())).title(m.getTitle()));
                             }
                     }
@@ -73,6 +73,22 @@ public class FindFragment extends Fragment implements OnMapReadyCallback {
                 @Override
                 public void onFailure(Call<ArrayList<Map>> call, Throwable t) {
 
+                }
+            });
+            map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                @Override
+                public boolean onMarkerClick(Marker marker) {
+                    Map dest = null;
+                    for (Map m : arrayList) {
+                        if (m.getTitle().equals(marker.getTitle())) {
+                            dest = m;
+                            break;
+                        }
+                    }
+                    binding.cardViewContainer.setVisibility(View.VISIBLE);
+                    binding.title.setText(dest.getTitle());
+                    binding.content.setText(dest.getAddress());
+                    return false;
                 }
             });
         }

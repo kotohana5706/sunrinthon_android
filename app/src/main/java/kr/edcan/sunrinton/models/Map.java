@@ -16,7 +16,7 @@ public class Map {
     }
 
     public String getTitle() {
-        return title;
+        return title.replace("<b>", "").replace("</b>", "");
     }
 
     public void setTitle(String title) {
