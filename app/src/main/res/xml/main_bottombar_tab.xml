@@ -1,0 +1,18 @@
+<tabs>
+    <tab
+        id="@+id/main_newsfeed"
+        icon="@mipmap/ic_launcher"
+        title="NewsFeed" />
+    <tab
+        id="@+id/main_studio"
+        icon="@mipmap/ic_launcher"
+        title="Studio" />
+    <tab
+        id="@+id/main_myeditorpage"
+        icon="@mipmap/ic_launcher"
+        title="My Editor Page" />
+    <tab
+        id="@+id/main_settings"
+        icon="@mipmap/ic_launcher"
+        title="Settings" />
+</tabs>

@@ -19,10 +19,23 @@
             android:background="@drawable/activity_background"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/login"
+            <kr.edcan.sunrinton.views.ControllableViewPager
+                android:id="@+id/mainPager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <com.roughike.bottombar.BottomBar
+                android:id="@+id/mainBottombar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bottombar_height"
+                android:background="@color/colorPrimary"
+                android:gravity="center_vertical"
+                app:bb_activeTabColor="@android:color/transparent"
+                app:bb_inActiveTabAlpha="0.3"
+                app:bb_inActiveTabColor="@android:color/transparent"
+                app:bb_tabXmlResource="@xml/main_bottombar_tab"
+                app:bb_titleTextAppearance="@style/CustomTitleTextAppearance" />
         </LinearLayout>
     </LinearLayout>
 </layout>
