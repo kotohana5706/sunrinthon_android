@@ -19,7 +19,7 @@
             android:value="@string/facebook_app_id" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyA9ZXUfJ3T14ZSI90QOjLOq4uZonLEcMZQ"/>
+            android:value="AIzaSyA9ZXUfJ3T14ZSI90QOjLOq4uZonLEcMZQ" />
 
         <activity android:name=".MainActivity" />
         <activity
@@ -56,7 +56,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".ChangeDesignActivity" />
-        <activity android:name=".CardPrintActivity"></activity>
+        <activity android:name=".CardPrintActivity" />
+        <activity android:name=".HWPayInfoActivity" />
+        <activity android:name=".HWPayPasswordActivity" />
+        <activity android:name=".HWPayCompleteActivity"></activity>
     </application>
 
 </manifest>

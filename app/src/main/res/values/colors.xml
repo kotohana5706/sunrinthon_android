@@ -17,4 +17,5 @@
     <color name="fbColorPressed">#354685</color>
     <color name="textColorDark">#616161</color>
 
+    <color name="hwColor">#e56c6c</color>
 </resources>

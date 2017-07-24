@@ -1,9 +1,12 @@
 package kr.edcan.sunrinton;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Toast;
 
@@ -35,6 +38,7 @@ public class MainActivity extends BaseActivity {
         pager = new MainPagerAdapter(getSupportFragmentManager());
         mainPager = binding.mainPager;
         mainPager.setAdapter(pager);
+        mainPager.setOffscreenPageLimit(4);
         binding.mainBottombar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelected(@IdRes int tabId) {
