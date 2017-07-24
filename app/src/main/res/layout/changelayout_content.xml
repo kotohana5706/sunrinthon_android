@@ -3,6 +3,10 @@
     <data>
 
         <variable
+            name="user"
+            type="kr.edcan.sunrinton.models.User" />
+
+        <variable
             name="activity"
             type="kr.edcan.sunrinton.ChangeDesignActivity" />
 
@@ -48,7 +52,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
                     android:layout_margin="16dp"
-                    android:text="No.012345678"
+                    android:text="@{user._id}"
                     android:textColor="#FFF"
                     android:textStyle="bold" />
             </RelativeLayout>

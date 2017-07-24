@@ -38,6 +38,9 @@ public class ChangeDesignActivity extends BaseActivity {
                     public void onBind(Holder<ChangelayoutContentBinding> holder) {
                         super.onBind(holder);
                         holder.getBinding().setActivity(ChangeDesignActivity.this);
+                        holder.getBinding().setUser(
+                                CredentialsManager.getInstance().getActiveUser().second
+                        );
                     }
                 })
                 .into(binding.changeDesignRecyclerView);

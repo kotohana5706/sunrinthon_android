@@ -29,7 +29,7 @@ public class CardFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_card, container, false);
-        binding.cardNum.setText("No. " + CredentialsManager.getInstance().getActiveUser().second.get_id());
+        binding.cardNum.setText(CredentialsManager.getInstance().getActiveUser().second.get_id());
         binding.cardContainer.setBackground(new ColorDrawable(Color.parseColor(
                 CredentialsManager.getInstance().getColorBackground()
         )));
