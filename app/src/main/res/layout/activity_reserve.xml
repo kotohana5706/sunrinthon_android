@@ -1,0 +1,77 @@
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="kr.edcan.sunrinton.ReserveActivity">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/activity_background"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/selectedMapText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="남영역점"
+                android:textColor="#000"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/selectedMapAddressText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ㅁㄴㅇㄻㄴㅇㄹㄴㅁㅇㄹ"
+                android:textColor="#32000000"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/datePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_bg_black_selector"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="날짜를 선택해주세요"
+                android:textColor="#FFF" />
+
+            <TextView
+                android:id="@+id/timePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_bg_transparent_selector"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="시간을 선택해주세요"
+                android:textColor="#000" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/confirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_bg_transparent_selector"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="확인"
+                android:textColor="#000" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

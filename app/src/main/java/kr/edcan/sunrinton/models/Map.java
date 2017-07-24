@@ -1,10 +1,12 @@
 package kr.edcan.sunrinton.models;
 
+import java.io.Serializable;
+
 /**
  * Created by Junseok Oh on 2017-07-25.
  */
 
-public class Map {
+public class Map implements Serializable{
     private String title, address;
     private double longitude, latitude;
 

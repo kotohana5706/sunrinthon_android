@@ -73,7 +73,8 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".EntranceActivity"></activity>
+        <activity android:name=".EntranceActivity" />
+        <activity android:name=".ReserveActivity"></activity>
     </application>
 
 </manifest>

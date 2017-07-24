@@ -1,5 +1,6 @@
 package kr.edcan.sunrinton.fragment;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -19,6 +20,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.ArrayList;
 
 import kr.edcan.sunrinton.R;
+import kr.edcan.sunrinton.ReserveActivity;
 import kr.edcan.sunrinton.databinding.FragmentFindBinding;
 import kr.edcan.sunrinton.databinding.FragmentSettingsBinding;
 import kr.edcan.sunrinton.models.Map;
@@ -36,6 +38,7 @@ public class FindFragment extends Fragment implements OnMapReadyCallback {
     FragmentFindBinding binding;
     GpsInfo gpsInfo;
     GoogleMap map;
+    Map currentClickedMap = null;
     ArrayList<Map> arrayList = new ArrayList<>();
 
     public FindFragment() {
@@ -85,10 +88,19 @@ public class FindFragment extends Fragment implements OnMapReadyCallback {
                             break;
                         }
                     }
+                    currentClickedMap = dest;
                     binding.cardViewContainer.setVisibility(View.VISIBLE);
                     binding.title.setText(dest.getTitle());
                     binding.content.setText(dest.getAddress());
                     return false;
+                }
+            });
+            binding.reservenow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (currentClickedMap == null) return;
+                    startActivity(new Intent(getActivity(), ReserveActivity.class)
+                            .putExtra("map", currentClickedMap));
                 }
             });
         }
