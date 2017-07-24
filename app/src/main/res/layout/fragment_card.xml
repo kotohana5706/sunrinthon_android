@@ -27,7 +27,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
-                    android:src="@mipmap/ic_launcher" />
+                    android:src="@drawable/pic_card_logo" />
 
                 <TextView
                     android:id="@+id/cardNum"
