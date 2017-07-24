@@ -1,18 +1,18 @@
 <tabs>
     <tab
-        id="@+id/main_newsfeed"
         icon="@mipmap/ic_launcher"
-        title="NewsFeed" />
+        id="@+id/main_find"
+        title="찾기" />
     <tab
-        id="@+id/main_studio"
         icon="@mipmap/ic_launcher"
-        title="Studio" />
+        id="@+id/main_card"
+        title="내 카드" />
     <tab
-        id="@+id/main_myeditorpage"
         icon="@mipmap/ic_launcher"
-        title="My Editor Page" />
+        id="@+id/main_history"
+        title="사용 내역" />
     <tab
+        icon="@mipmap/ic_launcher"
         id="@+id/main_settings"
-        icon="@mipmap/ic_launcher"
-        title="Settings" />
+        title="설정" />
 </tabs>
