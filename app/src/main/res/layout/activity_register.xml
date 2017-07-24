@@ -20,22 +20,33 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/pic_login_edpass" />
-
             <EditText
                 android:id="@+id/emailInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:hint="이메일"
                 android:inputType="textEmailAddress"
                 android:singleLine="true" />
 
             <EditText
+                android:id="@+id/nicknameInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="닉네임"
+                android:singleLine="true" />
+
+            <EditText
                 android:id="@+id/passwordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="비밀번호 입력"
+                android:inputType="textEmailAddress"
+                android:singleLine="true" />
+
+            <EditText
+                android:id="@+id/passwordReInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -49,35 +60,16 @@
                 android:layout_weight="1" />
 
             <TextView
-                android:id="@+id/loginBtnn"
+                android:id="@+id/registerBtn"
                 android:layout_width="match_parent"
+                android:textStyle="bold"
+                android:textSize="15sp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_bg_black_selector"
                 android:gravity="center"
                 android:padding="16dp"
                 android:text="회원가입"
-                android:textColor="#FFF"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/fbLoginButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/btn_bg_fb_selector"
-                android:gravity="center"
-                android:padding="16dp"
-                android:text="페이스북으로 로그인"
-                android:textColor="#FFF"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <com.facebook.login.widget.LoginButton
-                android:id="@+id/realFBButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone" />
+                android:textColor="#FFF" />
         </LinearLayout>
     </LinearLayout>
 </layout>

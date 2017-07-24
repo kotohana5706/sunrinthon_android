@@ -6,26 +6,24 @@ package kr.edcan.sunrinton.models;
 
 public class User {
     private int userType = 0;
-    private String email, name, token, profile, profile_img, facebook_id;
+    private String name, pw, email, token;
+    private int money;
 
-    public User() {
-    }
-
-    public User(String email, String name, String token, String profile, String profile_img, String facebook_id) {
-        this.email = email;
+    public User(int userType, String name, String pw, String email, String token, int money) {
+        this.userType = userType;
         this.name = name;
-        this.token = token;
-        this.profile = profile;
-        this.profile_img = profile_img;
-        this.facebook_id = facebook_id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
+        this.pw = pw;
         this.email = email;
+        this.token = token;
+        this.money = money;
+    }
+
+    public int getUserType() {
+        return userType;
+    }
+
+    public void setUserType(int userType) {
+        this.userType = userType;
     }
 
     public String getName() {
@@ -36,6 +34,22 @@ public class User {
         this.name = name;
     }
 
+    public String getPw() {
+        return pw;
+    }
+
+    public void setPw(String pw) {
+        this.pw = pw;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getToken() {
         return token;
     }
@@ -44,35 +58,11 @@ public class User {
         this.token = token;
     }
 
-    public String getProfile() {
-        return profile;
+    public int getMoney() {
+        return money;
     }
 
-    public void setProfile(String profile) {
-        this.profile = profile;
-    }
-
-    public String getProfile_img() {
-        return profile_img;
-    }
-
-    public void setProfile_img(String profile_img) {
-        this.profile_img = profile_img;
-    }
-
-    public String getFacebook_id() {
-        return facebook_id;
-    }
-
-    public void setFacebook_id(String facebook_id) {
-        this.facebook_id = facebook_id;
-    }
-
-    public int getUserType() {
-        return userType;
-    }
-
-    public void setUserType(int userType) {
-        this.userType = userType;
+    public void setMoney(int money) {
+        this.money = money;
     }
 }

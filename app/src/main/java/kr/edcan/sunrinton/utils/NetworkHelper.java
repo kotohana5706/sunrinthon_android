@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NetworkHelper {
     private final static String url = "http://soylatte.kr";
-    private final static int port = 3000;
+    private final static int port = 6974;
 
     private static Retrofit retrofit;
 

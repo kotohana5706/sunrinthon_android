@@ -5,6 +5,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.edcan.sunrinton.models.History;
 import kr.edcan.sunrinton.models.User;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
@@ -43,6 +44,39 @@ public interface NetworkAPI {
             @Field("email") String email,
             @Field("name") String name,
             @Field("pw") String password);
+
+    @POST("/self/updateNickname")
+    @FormUrlEncoded
+    Call<User> updateNickname(
+            @Field("token") String token,
+            @Field("nickname") String nickname);
+
+    @POST("/money/chargeSelf")
+    @FormUrlEncoded
+    Call<User> chargeSelf(
+            @Field("token") String token,
+            @Field("cost") int moneyAdded);
+
+    @POST("/money/chargeFriend")
+    @FormUrlEncoded
+    Call<ResponseBody> chargeFriend(
+            @Field("token") String token,
+            @Field("email") String email,
+            @Field("cost") int moneyAdded);
+
+    @GET("/search/user")
+    Call<ArrayList<User>> findUser(@Query("name") String nameQuery);
+
+    @POST("/money/purchase")
+    @FormUrlEncoded
+    Call<User> purchase(
+            @Field("token") String token);
+
+    @POST("/money/purchase")
+    @FormUrlEncoded
+    Call<ArrayList<History>> getHistory(
+            @Field("token") String token);
+
 
 
 }

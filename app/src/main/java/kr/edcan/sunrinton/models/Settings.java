@@ -30,7 +30,7 @@ public class Settings {
     }
 
     public Drawable getIcon() {
-        return ContextCompat.getDrawable(AppController.getContext(), icon);
+        return (icon == 0) ? null : ContextCompat.getDrawable(AppController.getContext(), icon);
     }
 
     public void setIcon(int icon) {

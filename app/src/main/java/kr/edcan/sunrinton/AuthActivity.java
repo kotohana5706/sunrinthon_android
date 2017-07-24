@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -15,6 +16,7 @@ import com.facebook.login.widget.LoginButton;
 
 import kr.edcan.sunrinton.databinding.ActivityAuthBinding;
 import kr.edcan.sunrinton.models.User;
+import kr.edcan.sunrinton.utils.CredentialsManager;
 import kr.edcan.sunrinton.utils.NetworkHelper;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,8 +30,10 @@ public class AuthActivity extends BaseActivity {
     @Override
     protected void setDefault() {
         binding = (ActivityAuthBinding) baseBinding;
-        loginButton = binding.fbLoginButton;
-        binding.realFbLoginButton.setOnClickListener(new View.OnClickListener() {
+        loginButton = binding.realFBButton;
+        disableToggle();
+        setToolbarTitle("로그인");
+        binding.fbLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 loginButton.performClick();
@@ -46,13 +50,23 @@ public class AuthActivity extends BaseActivity {
                 NetworkHelper.getNetworkInstance().loginByFacebook(loginResult.getAccessToken().getToken()).enqueue(new Callback<User>() {
                     @Override
                     public void onResponse(Call<User> call, Response<User> response) {
-                        Log.e("asdf", response.code() + "");
-                        if (response.code() == 200) Log.e("asdf", response.body().getName());
+                        switch (response.code()) {
+                            case 200:
+                                CredentialsManager.getInstance().saveUserInfo(response.body(), 0);
+                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                Toast.makeText(AuthActivity.this, response.body().getName() + "님 환영합니다!", Toast.LENGTH_SHORT).show();
+                                finish();
+                                break;
+                            default:
+                                Toast.makeText(AuthActivity.this, "로그인 할 수 없습니다.", Toast.LENGTH_SHORT).show();
+                                Log.e("asdf", response.code() + "");
+                                break;
+                        }
                     }
 
                     @Override
                     public void onFailure(Call<User> call, Throwable t) {
-
+                        Log.e("asdf", t.getLocalizedMessage());
                     }
                 });
             }
@@ -65,6 +79,39 @@ public class AuthActivity extends BaseActivity {
             @Override
             public void onError(FacebookException error) {
 
+            }
+        });
+        binding.loginBtnn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (binding.emailInput.getText().toString().equals("") || binding.passwordInput.getText().toString().equals(""))
+                    Toast.makeText(AuthActivity.this, "빈칸 없이 입력해주세요", Toast.LENGTH_SHORT).show();
+                else {
+                    NetworkHelper.getNetworkInstance().loginLocal(
+                            binding.emailInput.getText().toString().trim(),
+                            binding.passwordInput.getText().toString().trim()
+                    ).enqueue(new Callback<User>() {
+                        @Override
+                        public void onResponse(Call<User> call, Response<User> response) {
+                            switch (response.code()) {
+                                case 200:
+                                    CredentialsManager.getInstance().saveUserInfo(response.body(), 1);
+                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                    finish();
+                                    Toast.makeText(AuthActivity.this, response.body().getName() + "님 환영합니다!", Toast.LENGTH_SHORT).show();
+                                    break;
+                                default:
+                                    Toast.makeText(AuthActivity.this, "아이디 혹은 비밀번호가 잘못되었습니다.", Toast.LENGTH_SHORT).show();
+                                    break;
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<User> call, Throwable t) {
+                            Log.e("asdf", t.getLocalizedMessage());
+                        }
+                    });
+                }
             }
         });
     }
@@ -82,6 +129,6 @@ public class AuthActivity extends BaseActivity {
 
     @Override
     protected int onCreateViewToolbarId() {
-        return 0;
+        return R.id.toolbar;
     }
 }
