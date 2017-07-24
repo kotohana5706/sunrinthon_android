@@ -95,7 +95,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/btn_bg_transparent_selector"
                     android:gravity="center"
-                    android:text="충전하기" />
+                    android:text="선물하기" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

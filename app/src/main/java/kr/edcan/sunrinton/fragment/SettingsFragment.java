@@ -5,6 +5,7 @@ import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -38,10 +39,10 @@ public class SettingsFragment extends Fragment {
     public SettingsFragment() {
         Collections.addAll(arrayList,
                 "내 프로필",
-                new Settings("닉네임 변경", null, "1000GUK에서 사용할 닉네임을 변경합니다."),
+                new Settings("닉네임 변경", R.drawable.ic_settings_name, "1000GUK에서 사용할 닉네임을 변경합니다."),
                 "1000GUK 카드",
-                new Settings("카드 디자인 변경", null, "사용하고 있는 카드의 디자인을 변경합니다."),
-                new Settings("카드 인쇄", null, "오프라인으로 사용가능한 카드 인쇄를 신청합니다."));
+                new Settings("카드 디자인 변경", R.drawable.ic_settings_change, "사용하고 있는 카드의 디자인을 변경합니다."),
+                new Settings("카드 인쇄", R.drawable.ic_settings_print, "오프라인으로 사용가능한 카드 인쇄를 신청합니다."));
     }
 
     @Nullable

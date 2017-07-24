@@ -1,18 +1,19 @@
 <tabs>
     <tab
-        icon="@mipmap/ic_launcher"
+        icon="@drawable/btn_btm_find"
         id="@+id/main_find"
+        
         title="찾기" />
     <tab
-        icon="@mipmap/ic_launcher"
+        icon="@drawable/btn_btm_card"
         id="@+id/main_card"
         title="내 카드" />
     <tab
-        icon="@mipmap/ic_launcher"
+        icon="@drawable/btn_btm_history"
         id="@+id/main_history"
         title="사용 내역" />
     <tab
-        icon="@mipmap/ic_launcher"
+        icon="@drawable/btn_btm_settings"
         id="@+id/main_settings"
         title="설정" />
 </tabs>

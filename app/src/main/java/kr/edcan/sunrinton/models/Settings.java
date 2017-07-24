@@ -1,6 +1,10 @@
 package kr.edcan.sunrinton.models;
 
 import android.graphics.drawable.Drawable;
+import android.support.annotation.DrawableRes;
+import android.support.v4.content.ContextCompat;
+
+import kr.edcan.sunrinton.utils.AppController;
 
 /**
  * Created by Junseok Oh on 2017-07-24.
@@ -8,10 +12,10 @@ import android.graphics.drawable.Drawable;
 
 public class Settings {
     private String title;
-    private Drawable icon;
+    private int icon;
     private String content;
 
-    public Settings(String title, Drawable icon, String content) {
+    public Settings(String title, @DrawableRes int icon, String content) {
         this.title = title;
         this.icon = icon;
         this.content = content;
@@ -26,10 +30,10 @@ public class Settings {
     }
 
     public Drawable getIcon() {
-        return icon;
+        return ContextCompat.getDrawable(AppController.getContext(), icon);
     }
 
-    public void setIcon(Drawable icon) {
+    public void setIcon(int icon) {
         this.icon = icon;
     }
 

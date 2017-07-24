@@ -3,7 +3,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="stroke_width">1dp</dimen>
-    <dimen name="bottombar_height">65dp</dimen>
+    <dimen name="bottombar_height">55   dp</dimen>
 
     <!--Bottombar Library Dimensions-->
     <dimen name="bb_height">56dp</dimen>
