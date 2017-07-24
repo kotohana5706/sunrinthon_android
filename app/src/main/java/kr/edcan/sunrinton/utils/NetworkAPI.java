@@ -71,7 +71,7 @@ public interface NetworkAPI {
     @POST("/money/purchase")
     @FormUrlEncoded
     Call<User> purchase(
-            @Field("token") String token);
+            @Field("token") String token, @Field("cost") int cost);
 
 
     @POST("/self/gethistory")

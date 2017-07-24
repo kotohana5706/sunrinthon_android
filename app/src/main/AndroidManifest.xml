@@ -5,6 +5,11 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.NFC" />
+
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="true" />
 
     <application
         android:name=".utils.AppController"
@@ -59,7 +64,16 @@
         <activity android:name=".CardPrintActivity" />
         <activity android:name=".HWPayInfoActivity" />
         <activity android:name=".HWPayPasswordActivity" />
-        <activity android:name=".HWPayCompleteActivity"></activity>
+        <activity android:name=".HWPayCompleteActivity" />
+
+        <receiver android:name=".receiver.DownReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+                <action android:name="android.media.VOLUME_CHANGED_ACTION" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".EntranceActivity"></activity>
     </application>
 
 </manifest>
